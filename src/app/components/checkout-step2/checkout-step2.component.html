@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Cybersource Secure Acceptance - Silent Order Post</h1>
+  <h2>Step 2</h2>
+  <p>
+    These fields will be POSTed to your server for signing using the Security file included in the sample script. The name of
+    each signed field should be included in the signed_field_names.
+  </p>
+  <form ngNoForm id="payment_confirmation" action="https://testsecureacceptance.cybersource.com/silent/pay" method="post">
+    <div *ngFor="let c of controls;">
+      <input type="hidden" id="{{c.key}}" name="{{c.key}}" value="{{c.value}}" />
+    </div>
+
+    <div id="creditCardSection">
+      <div class="card">
+        <div class="card-block">
+          <h6 class="card-subtitle mb-2 text-muted">Fields that will be sent directly to Cybersource.</h6>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Card Type</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.card_type" name="card_type">
+            </div>
+            <div class="col-sm-2 col-form-label">Card Number</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.card_number" name="card_number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Expiry Date</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.card_expiry_date" name="card_expiry_date">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-4 col-form-label">
+              <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

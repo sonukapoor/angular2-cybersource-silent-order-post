@@ -1,0 +1,111 @@
+<div class="container">
+  <h1>Cybersource Secure Acceptance - Silent Order Post</h1>
+  <h2>Step 1</h2>
+  <p>
+    These fields will be POSTed to your server for signing using the Security file included in the sample script. The name of
+    each signed field should be included in the signed_field_names.
+  </p>
+  <form #f="ngForm" novalidate (ngSubmit)="encryptData(f.value, f.valid);">
+    <input type="hidden" name="access_key" [(ngModel)]="data.access_key" />
+    <input type="hidden" name="profile_id" [(ngModel)]="data.profile_id" />
+    <input type="hidden" name="transaction_uuid" [(ngModel)]="data.transaction_uuid" />
+    <input type="hidden" name="signed_field_names" [(ngModel)]="data.signed_field_names" />
+    <input type="hidden" name="unsigned_field_names" [(ngModel)]="data.unsigned_field_names" />
+    <input type="hidden" name="signed_date_time" [(ngModel)]="data.signed_date_time" />
+    <input type="hidden" name="locale" [(ngModel)]="data.locale" />
+    <div id="paymentDetailsSection" class="section">
+      <div class="card">
+        <div class="card-block">
+          <h6 class="card-subtitle mb-2 text-muted">These are the most common fields the user will see on their checkout page. They are required to be sent to Cybersource.</h6>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">First Name</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_forename" name="bill_to_forename">
+            </div>
+            <div class="col-sm-2 col-form-label">Last Name</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_surname" name="bill_to_surname">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Email</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_email" name="bill_to_email">
+            </div>
+            <div class="col-sm-2 col-form-label">Phone</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_phone" name="bill_to_phone">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Address 1</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_address_line1" name="bill_to_address_line1">
+            </div>
+            <div class="col-sm-2 col-form-label">City</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_address_city" name="bill_to_address_city">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">State</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_address_state" name="bill_to_address_state">
+            </div>
+            <div class="col-sm-2 col-form-label">Country</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_address_country" name="bill_to_address_country">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Zip/PostalCode</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.bill_to_address_postal_code" name="bill_to_address_postal_code">
+            </div>
+            <div class="col-sm-2 col-form-label">Amount</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="amount" [(ngModel)]="data.amount" size="25">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-4 col-form-label">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p></p>
+      <div class="card" style="background-color:whitesmoke;">
+        <div class="card-block">
+          <h6 class="card-subtitle mb-2 text-muted">These fields will usually be hidden in your form to be passed to Cybersource.</h6>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Transaction Type</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="transaction_type" id="transaction_type" [(ngModel)]="data.transaction_type"
+                size="25" />
+            </div>
+            <div class="col-sm-2 col-form-label">Reference #</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="reference_number" [(ngModel)]="data.reference_number" size="25">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">Currency</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="currency" [(ngModel)]="data.currency" size="25">
+            </div>
+            <div class="col-sm-2 col-form-label">Payment Method</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" [(ngModel)]="data.payment_method" name="payment_method">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
