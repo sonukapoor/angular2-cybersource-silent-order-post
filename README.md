@@ -4,9 +4,9 @@ This is a work in progress proof of concept project to demonstrate the usage of 
 
 For more information about SOP see the [documentation](https://www.cybersource.com/developers/getting_started/integration_methods/secure_acceptance_sop/).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
-
 More information about this example application to follow. Until then you can create an issue for any questions or concerns.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
